@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 	'accounts',
 	'vankvanh',
+	'frontend',
+	'rest_framework',
+	'widget_tweaks',
 ]
 
 MIDDLEWARE = [

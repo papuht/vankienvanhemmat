@@ -1,0 +1,14 @@
+.textstyle {
+	display: block;
+	border-style: solid;
+	border-color: #eee;
+	border-width: 1px;
+	border-radius: 5px;
+	background-color: #eee;
+	box-shadow: 1px 1px;
+	margin:auto;
+	
+	
+	position: relative;
+	width: 33%;
+}

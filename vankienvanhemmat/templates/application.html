@@ -1,0 +1,57 @@
+{%extends 'base.html'%}
+{% load static%}
+{% load widget_tweaks%}
+{%block content%}
+
+<link rel="stylesheet" href="{% static 'css/application.css' %}">
+
+<div class = "blockbody">
+<div class = "text">
+<p> Tällä lomakkeella voit liittyä Vankien Vanhemmat ry:n jäseneksi.<br/>
+	<br/>
+	<br/>
+	Jäsenet voivat osallistua yhdistyksen kokouksiin ja äänestää niissä.<br/>
+	Jäsenet voivat myös osallistua yhdistyksen järjestämiin tapahtumiin.<br/>
+	<br/>
+	<br/>
+	
+	
+	Täytä kaikki kohdat ja lähetä lomake. Otamme sinuun yhteyttä</br>
+	sähköpostitse, kun hakemuksesi on käsitelty.<br/>
+	
+
+
+		<br/>												
+	Hakemuksen käsittelyssä voi mennä muutamia viikkoja.
+
+
+		</p> 
+</div>
+<br/>
+
+<br/>
+<div class="form-div">
+
+<form action="/application/" method="post">
+
+    {% csrf_token %}
+	{% for hidden in form.hidden_fields %}
+	{{ hidden }}
+		{% endfor %}
+
+	{% for field in form.visible_fields %}
+		<div>
+		
+			<label for="{{ field.id_for_label }}">{{ field.label}}</label>
+		{{ field|add_class:"field"}}
+		{% for error in field.errors %}
+		{{ error }}
+    {% endfor %}
+  </div>
+{% endfor %}
+<br />
+    <input type="submit" value="Lähetä" class ="inputbtn">
+</form>
+</div>
+</div>
+{%endblock%}
