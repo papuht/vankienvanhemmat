@@ -17,9 +17,12 @@
 	<div class="sidenav">
 	
 		<a href="{% url 'index' %}">Uutiset</a>
-	
-			<div class="dropdown">
-				<a class="dropbtn">Yhdistys</a>
+		<a href="{% url 'application' %}">Liity jäseneksi</a>
+		<a href="{% url 'backgrounds' %}">Rikollisuuden taustoja</a>
+		<a href="{% url 'vankeus' %}">Vankeus</a>
+		<a href="#members">Jäsenille</a>
+		<div class="dropdown">
+				<a class="dropbtn">Yhdistys</a> 
 	
 				<div class="dropdown-content">
 					<a href="{% url 'rules' %}">Säännöt</a>
@@ -27,11 +30,6 @@
 					<a href="{% url 'contact' %}">Yhteystiedot</a>
 			</div>
 			</div> 
-	
-		<a href="{% url 'application' %}">Liity jäseneksi</a>
-		<a href="{% url 'backgrounds' %}">Rikollisuuden taustoja</a>
-		<a href="{% url 'vankeus' %}">Vankeus</a>
-		<a href="#members">Jäsenille</a>
 	
 	</div>
 	
@@ -46,8 +44,6 @@
     {% endblock %}
   </div>
 {% endblock body %}
-    <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
-    <script src="{% static 'js/popper.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    
   </body>
 </html>

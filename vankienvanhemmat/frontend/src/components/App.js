@@ -1,16 +1,41 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
+import styles from './reactstyle.css.js';
+
+const Updates = ({data}) => {
+	
+	const updates = this.data.map(update =>
+		<div>
+			<p>{updates.header}</p>
+			<p>{updates.created_at}</p>
+			<p><a href ={updates.link}>{updates.link}</a></p>
+			<p>{updates.message}</p>
+		</div>
+	)
+	
+		 return (
+		
+		<ul><li key={updates.id}>{updates}</li></ul>
+		
+    )
+	
+	
+
+
+
+}
+
 
 
 
 class App extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       data: [],
       loaded: false,
       placeholder: "Loading"
-    };
+    }
   }
 
   componentDidMount() {
@@ -18,28 +43,34 @@ class App extends Component {
       .then(response => {
         if (response.status > 400) {
           return this.setState(() => {
-            return { placeholder: "Something went wrong!" };
-          });
+            return { placeholder: "Something went wrong!" }
+          })
         }
-        return response.json();
+        return response.json()
       })
       .then(data => {
         this.setState(() => {
           return {
             data,
             loaded: true
-          };
-        });
-      });
+          }
+        })
+      })
+	  
   }
   
+	
  
   
 
   render() {
     return (
 	
-      <ul>
+	<div style = {styles.textstyle}>
+	<ul>
+	
+		
+	
         {this.state.data.map(update => {
           return (
 		  
@@ -54,11 +85,11 @@ class App extends Component {
             </li>
 			
 			
-          );
+          )
         })}
       </ul>
-	  
-    );
+	  </div>
+    )
   }
 }
 
