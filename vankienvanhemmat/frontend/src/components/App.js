@@ -1,21 +1,22 @@
 import React, { Component } from "react";
-import { render } from "react-dom";
+import ReactDOM from "react-dom";
 import styles from './reactstyle.css.js';
+import { parseISO, formatISO } from 'date-fns';
 
-const Updates = ({data}) => {
+const Updates = ({updates}) => {
 	
-	const updates = this.data.map(update =>
-		<div>
-			<p>{updates.header}</p>
-			<p>{updates.created_at}</p>
-			<p><a href ={updates.link}>{updates.link}</a></p>
-			<p>{updates.message}</p>
-		</div>
-	)
+	const parsed = parseISO(updates.created_at, {representation: 'date'} )
+	const date = formatISO(parsed,{representation: 'date'})
 	
 		 return (
 		
-		<ul><li key={updates.id}>{updates}</li></ul>
+			<li>
+			<p><b>{updates.header}</b></p><br />
+			<p>{date}</p><br />
+			<p><a href ={updates.link}>{updates.link}</a></p><br />
+			<p>{updates.message}</p><br />
+			</li>
+			
 		
     )
 	
@@ -64,29 +65,17 @@ class App extends Component {
   
 
   render() {
+	const updates = this.state.data 
     return (
 	
 	<div style = {styles.textstyle}>
-	<ul>
-	
+	<ul style = {styles.liststyle}>
+	{updates.map(update =>
 		
-	
-        {this.state.data.map(update => {
-          return (
-		  
-            <li key={update.id}>
-              <p>{update.header}</p>
-		      <p>Julkaistu {update.created_at}</p>
-			  <p><a href ={update.link}>{update.link}</a></p><br/>
-			  <p>{update.message}</p>
-			  <br/>
-			
-			<br/>
-            </li>
+        <Updates key ={update.id} updates = {update} />
 			
 			
-          )
-        })}
+	)}
       </ul>
 	  </div>
     )
@@ -95,7 +84,7 @@ class App extends Component {
 
 
 
-export default App;
+export default App
 
-const container = document.getElementById("app");
-render(<App />, container);
+
+ReactDOM.render(<App />, document.getElementById("app"))

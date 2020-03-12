@@ -14,4 +14,11 @@ const textstyle = {
 	width: '33%',
 }
 
-export default { textstyle }
+
+const liststyle = {
+	
+	listStyle: 'none',
+}
+	
+
+export default { textstyle, liststyle }

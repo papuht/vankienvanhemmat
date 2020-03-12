@@ -1,16 +1,34 @@
 {% extends 'base.html' %}
 
+
 {% block breadcrumb %}
  
 {% endblock %}
 
 {% block content %}
-  <p> Tälle sivulle tulee tietoa rikollisuuden taustoista </p>
+ 
   
+
+{% load static %}
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <title>Vankien Vanhemmat ry</title>
+</head>
+<body>
+
+<div id="backgrounds">
+    
+</div>
+
+
+
+
+{% load static %}
+
+<script src="{% static 'frontend/main.js'%}"></script>
+</body>
+</html>
 {% endblock %}
-
-{% block about %}
-
-
-
-{% endblock %} 
