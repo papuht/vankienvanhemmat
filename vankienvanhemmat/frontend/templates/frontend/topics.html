@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks%}
+
+
+
+{% block header%}
+
+ 
+
+	<div class = "post-headstyle">
+      
+		<li class = "liststyle"><a href ="{% url 'boards' %}" class ="linkstyle">Keskustelualueet</a></li>
+        
+		<li class = "liststyle"><a href="{% url 'new_topic' board.pk %}" class="linkstyle">Uusi keskustelu</a></li>
+      
+	  </div>
+	  
+
+{% endblock %}
+
+{% block content %}
+
+
+  <br />
+  
+	
+  
+  
+  <body>
+  
+	<div class = "post-boardstyle">
+	    <table class = "tablestyle">
+    <thead>
+      <tr>
+        <th>Aihe</th>
+        <th>Aloittaja</th>
+        <th>Viestit</th>
+        <th>Lukukerrat</th>
+        <th>Viimeisin</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for topic in board.topics.all %}
+        <tr>
+          <td>
+		  <br />
+		  <a href="{% url 'topic_posts' board.pk topic.pk %}" class ="linkstyle2">{{ topic.subject }}</a>
+		  <br />
+		  </td>
+          <td>
+		  <br />
+		  {{ topic.starter.username }}
+		  <br />
+		  </td>
+          <td>
+		  <br />
+		  {{ topic.posts.count }}
+		  <br />
+		  </td>
+          <td>
+		  <br />
+		  {{ topic.views }}
+		  <br />
+		  </td>
+          <td>
+		  <br />
+		  {{ topic.last_updated }}
+		  <br />
+		  </td>
+		  
+        </tr>
+		{% endfor %}
+		
+    </tbody>
+  </table>
+	  
+    </div>
+  </body>
+
+  
+{% endblock %}

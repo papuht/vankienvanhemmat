@@ -7,22 +7,27 @@
 
 <div class = "blockbody">
 <div class = "text">
-<p> Tällä lomakkeella voit liittyä Vankien Vanhemmat ry:n jäseneksi.<br/>
+<p> Tällä lomakkeella voit liittyä Vankien Vanhemmat ry:n jäseneksi.
 	<br/>
 	<br/>
-	Jäsenet voivat osallistua yhdistyksen kokouksiin ja äänestää niissä.<br/>
-	Jäsenet voivat myös osallistua yhdistyksen järjestämiin tapahtumiin.<br/>
+	Jäsenet voivat osallistua yhdistyksen kokouksiin ja äänestää niissä.<br />
+	Jäsenet voivat myös osallistua yhdistyksen järjestämiin tapahtumiin.
 	<br/>
 	<br/>
-	
-	
-	Täytä kaikki kohdat ja lähetä lomake. Otamme sinuun yhteyttä</br>
-	sähköpostitse, kun hakemuksesi on käsitelty.<br/>
-	
-
-
-		<br/>												
-	Hakemuksen käsittelyssä voi mennä muutamia viikkoja.
+	Täytä kaikki kohdat ja lähetä lomake. Otamme sinuun yhteyttä
+	sähköpostitse, kun hakemuksesi on käsitelty.
+	<br />
+	<br/>
+	Hakemuksen käsittelyn jälkeen aktivoimme käyttäjätunnuksen ja salasanan yhdistyksen keskustelupalstalle.
+	<br/>
+		<br/>
+	Hakemuksen käsittelyssä voi mennä muutamia viikkoja. Pyrimme käsittelemään kaikki hakemukset 
+	mahdollisimman nopeasti.
+		<br />
+		<br/>
+		
+	Tietoja ei luovuteta kolmansille tahoille eikä käytetä missään muussa kuin yhdistyksen toimintaan 
+	liittyvissä asioissa. 
 
 
 		</p> 
@@ -44,6 +49,7 @@
 		
 			<label for="{{ field.id_for_label }}">{{ field.label}}</label>
 		{{ field|add_class:"field"}}
+		<br />
 		{% for error in field.errors %}
 		{{ error }}
     {% endfor %}

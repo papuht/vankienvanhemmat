@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load widget_tweaks %}
+
+
+{% block title %}Vastaa keskusteluun{% endblock %}
+
+{% block header %}
+<div class ="post-headstyle">
+
+  <li class = "liststyle"><a href="{% url 'boards' %}" class = "linkstyle">Keskustelupalstat</a></li>
+  <li class = "liststyle"><a href="{% url 'board_topics' topic.board.pk %}" class = "linkstyle">{{ topic.board.name }}</a></li>
+  
+  <h1 class = "replyh1style"><a href="{% url 'topic_posts' topic.board.pk topic.pk %}" class = "reply-headstyle">{{ topic.subject }}</a></h1>
+  
+  </div>
+{% endblock %}
+
+{% block content %}
+<div class = "blockbody">
+  <form method="post">
+    {% csrf_token %}
+   {% for hidden in form.hidden_fields %}
+	{{ hidden }}
+		{% endfor %}
+
+	{% for field in form.visible_fields %}
+		<div class = "form-div">
+		
+			<label for="{{ field.id_for_label }}">{{ field.label}}</label>
+		{{ field|add_class:"field"}}
+		{% if field.help_text %}
+			<br />
+          <small class="helptext">
+            {{ field.help_text }}
+          </small>
+        {% endif %}
+		{% for error in field.errors %}
+		{{ error }}
+    {% endfor %}
+  </div>
+  <br />
+{% endfor %}
+	<div class = "blockbody">
+    <button type="submit" class="inputbtn">Lähetä</button>
+	</div>
+  </form>
+</div>
+  {% for post in topic.posts.all %}
+    
+        <div class="post-divstyle">
+          <div>
+            <img src="#" alt="{{ post.created_by.username }}" class = "userstyle">
+          </div>
+          <div>
+            <small class ="postcountstyle">Viestejä: {{ post.created_by.posts.count }}</small>
+          </div>
+			<div>
+            <div class="poststyle">
+              <div>
+                <small class ="postcountstyle">{{ post.created_at }}</small>
+				
+              </div>
+            <br />
+			
+			
+            {{ post.message }}
+			<br />
+			{% if post.created_by == user %}
+				
+			
+            <a href="#" class = "editbutton">Muokkaa</a>
+             
+            {% endif %}
+			<br />
+			
+				</div>
+           
+          </div>
+		
+           </div>
+  {% endfor %}
+
+{% endblock %}

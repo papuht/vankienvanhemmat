@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 	'frontend',
 	'rest_framework',
 	'widget_tweaks',
+	'boards',
 ]
 
 MIDDLEWARE = [
@@ -60,7 +61,9 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-		os.path.join(BASE_DIR, 'templates')
+		os.path.join(BASE_DIR, 'templates'),
+		'/vankienvanhemmat/vankienvanhemmat/frontend/templates/frontend',
+		'/vankienvanhemmat/vankienvanhemmat/vankvanh/templates',
 		],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -110,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fi'
 
 TIME_ZONE = 'UTC'
 
@@ -131,9 +134,9 @@ STATICFILES_DIRS = [
 ]
 
 
-LOGOUT_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = '/'
 
-LOGIN_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = '/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 

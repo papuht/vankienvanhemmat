@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static%}
+{% load widget_tweaks%}
+
+
+{% block title %}Kirjautuminen{% endblock %}
+
+{% block content %}
+	<div class="blockbody">
+  <h2>Kirjaudu sisään</h2>
+  
+  <form method="post" class="form-div">
+  
+    {% csrf_token %}
+	
+    {% for hidden in form.hidden_fields %}
+	{{ hidden }}
+		{% endfor %}
+
+	{% for field in form.visible_fields %}
+		<div >
+		
+			<label for="{{ field.id_for_label }}">{{ field.label}}</label>
+		{{ field|add_class:"field"}}
+		{% for error in field.errors %}
+		{{ error }}
+    {% endfor %}
+  </div>
+{% endfor %}
+<br />
+    <button type="submit" class ="inputbtn">Kirjaudu</button>
+	<br />
+	<br/>
+	<a href ="{% url 'password_reset' %}" class = "passwordresetlink"> Unohtuiko salasana? </a>
+	</div>
+	
+  </form>
+ 
+{% endblock %}

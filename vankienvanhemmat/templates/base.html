@@ -6,21 +6,48 @@
     <title>{% block title %}Vankien Vanhemmat{% endblock %}</title>
 	
 	<link rel="stylesheet" href="{% static 'css/styles.css' %}">
-   
+	<link rel="stylesheet" href="{% static 'css/dropdown.css' %}">
+	<link rel="stylesheet" href="{% static 'css/application.css' %}">
+	<link rel="stylesheet" href="{% static 'css/boards.css' %}">
+	
     {% block stylesheet %}{% endblock %}  
   </head>
   <body>
     {% block body %}
+	
 	<div>
-	<h1 class = "title"> Vankien Vanhemmat ry </h1>
+	
+	<p class = "title"> Vankien Vanhemmat ry </p>
+	
+	{% if user.is_authenticated %}
+	
+	<div class = "dropdown-div">
+	<button onclick = "dropDown()"  class = "dropbutton">{{ user.username }}</button>
+		<div id = "myDropdown" class ="dropdown-menu">
+			<a href = "{% url 'logout' %}">Kirjaudu ulos</a>
+			<a href = "{% url 'password_change' %}">Vaihda salasana</a>
+		</div>
+		</div>
+	{% else %}
+	<div class ="logindiv">
+	<a href = "{% url 'login' %}" class = "loginbutton">Kirjaudu</a>
 	</div>
+	{% endif %}
+	</div>
+	
+	
+	
 	<div class="sidenav">
 	
 		<a href="{% url 'index' %}">Uutiset</a>
 		<a href="{% url 'application' %}">Liity jäseneksi</a>
 		<a href="{% url 'backgrounds' %}">Rikollisuuden taustoja</a>
 		<a href="{% url 'vankeus' %}">Vankeus</a>
-		<a href="#members">Jäsenille</a>
+		{% if user.is_authenticated %}
+		<a href="{% url 'boards' %}">Keskustelu</a>
+		{% else %}
+		<a href ="{% url 'login' %}">Keskustelu</a>
+		{% endif %}
 		<div class="dropdown">
 				<a class="dropbtn">Yhdistys</a> 
 	
@@ -32,18 +59,16 @@
 			</div> 
 	
 	</div>
+	<div>
+	{% block header %}
+	{% endblock %}
 	
-	 
-
-  <div class = "blockbody">
-   
-      {% block breadcrumb %}
-      {% endblock %}
-    
+	 <div>
     {% block content %}
     {% endblock %}
-  </div>
+	</div>
 {% endblock body %}
+	<script src="{% static 'js/dropdown.js'%}"></script>
     
   </body>
 </html>

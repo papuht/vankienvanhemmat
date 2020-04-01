@@ -1,19 +1,24 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import styles from './reactstyle.css.js';
+import {parseISO, formatISO} from 'date-fns';
 
 const Background = ({background}) => {
 	
-	
+	const parsed = parseISO(background.created_at, {representation: 'date'} )
+	const date = formatISO(parsed,{representation: 'date'})
 	
 		 return (
-		
+		<div style = {styles.textstyle}>
+		<ul style = {styles.liststyle}>
 			<li>
-			<p>{background.header}</p><br />
-			<p>{background.created_at}</p><br />
-			<p><a href ={backgrounds.link}>{backgrounds.link}</a></p><br />
-			<p>{background.message}</p><br />
+			<p style = {styles.textstyleline}><b>{background.header}</b>  </p>
+			<p>Julkaistu {date}</p>
+			<p>Lähde: <a href ={background.link}>{background.link}</a></p><br />
+			<p>{background.message}</p>
 			</li>
+		</ul>
+	  </div>
 			
 		
     )
@@ -66,22 +71,20 @@ class Backgrounds extends Component {
 	const backg = this.state.data 
     return (
 	
-	<div style = {styles.textstyle}>
-	<ul>
+	<div>
 	{backg.map(background =>
 		
         <Background key ={background.id} background = {background} />
 			
 			
 	)}
-      </ul>
-	  </div>
+      </div>
     )
   }
 }
 
 
 
-export default Backgrounds;
+export default Backgrounds
 
-ReactDOM.render(<Backgrounds />, document.getElementById('backgrounds'))
+

@@ -2,14 +2,14 @@
 	
 	display: block;
 	border-style: solid;
-	border-color: #eee;
+	border-color: black;
 	border-width: 1px;
 	border-radius: 5px;
-	background-color: #eee;
+	background-color: white;
 	box-shadow: 1px 1px;
 	margin:auto;
-	
-	
+	text-align: left;
+	padding: 15px;
 	position: relative;
 	width: 33%;
 }
@@ -24,6 +24,13 @@
 	box-shadow: 1px 1px;
 	font-size: 20px;
 	
+}
+
+.inputbtn:hover {
+	
+	background-color: grey;
+	color: white;
+
 }
 
 .form-div {
@@ -58,3 +65,25 @@
 	
 
 }
+
+.helptext {
+	display: block;
+	margin:auto;
+	font-size: 16px;
+	color: grey;
+	position: relative;
+	width: 33%;
+
+
+}
+
+.ntlist {
+	list-style:none;
+	background-color: #eee;
+	display:inline;
+	text-decoration:none;
+
+}
+
+
+

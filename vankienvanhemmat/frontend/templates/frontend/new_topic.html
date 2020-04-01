@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}Aloita uusi keskustelu{% endblock %}
+
+{% block header %}
+
+	<div class = "post-headstyle">
+	
+	<li class = "liststyle"><a href="{% url 'boards' %}" class ="linkstyle">Keskustelut</a></li>
+  <li class = "liststyle"><a href="{% url 'board_topics' board.pk %}" class ="linkstyle">{{ board.name }}</a></li>
+  <h1 class = "replyh1style">Uusi aihe</h1><br />
+  </div>
+
+
+{% endblock %}
+
+
+
+{% block content %}
+	
+	<body>
+	<div class = "blockbody">
+  
+  <form method="post">
+    {% csrf_token %}
+    {% for hidden in form.hidden_fields %}
+	{{ hidden }}
+		{% endfor %}
+
+	{% for field in form.visible_fields %}
+		<div class = "form-div">
+		
+			<label for="{{ field.id_for_label }}">{{ field.label}}</label>
+		{{ field|add_class:"field"}}
+		{% if field.help_text %}
+			<br />
+          <small class="helptext">
+            {{ field.help_text }}
+          </small>
+        {% endif %}
+		{% for error in field.errors %}
+		{{ error }}
+    {% endfor %}
+  </div>
+  <br />
+{% endfor %}
+    <button type="submit" class="inputbtn">Lähetä</button>
+  </form>
+  
+  
+  </div>
+  
+</body>
+{% endblock %}

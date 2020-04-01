@@ -7,10 +7,10 @@ body {
 .textstyle {
 	display: block;
 	border-style: solid;
-	border-color: #eee;
+	border-color: white;
 	border-width: 1px;
 	border-radius: 5px;
-	background-color: #eee;
+	background-color: white;
 	box-shadow: 1px 1px;
 	margin:auto;
 	position: relative;
@@ -24,7 +24,7 @@ body {
   
   position: fixed;
   z-index: 1;
-  top: 75px;
+  top: 100px;
   left: 10px;
   background: #eee;
   overflow-x: hidden;
@@ -49,8 +49,8 @@ body {
 }
 
 .main {
-  margin-left: 140px; /* Same width as the sidebar + left position in px */
-  font-size: 28px; /* Increased text to enable scrolling */
+  margin-left: 140px; 
+  font-size: 28px; 
   padding: 0px 10px;
 }
 
@@ -60,9 +60,9 @@ body {
 }
 
 .title {
-	text-align: center;
+	text-align: left;
 	font-size: 35px;
-	color: grey;
+	color: black;
 	
 }
 
@@ -143,4 +143,13 @@ body {
 
 .dropdown:hover .dropbtn {background-color: #eee;}
 
+.userbutton {
+		float: right; 
+}
 
+
+
+.passwordresetlink {
+	margin: auto;
+	position: relative;
+}

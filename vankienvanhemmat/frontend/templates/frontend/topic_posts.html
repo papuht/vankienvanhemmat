@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ topic.subject }}{% endblock %}
+
+
+
+{% block header %}
+	<div class = "post-headstyle">
+  <li class="liststyle"><a href="{% url 'boards' %}" class = "linkstyle">Keskustelu</a></li>
+  <li class="liststyle"><a href="{% url 'board_topics' topic.board.pk %}" class = "linkstyle">{{ topic.board.name }}</a></li>
+  
+	</div>
+	
+
+{% endblock %}
+
+{% block content %}
+
+	  <div class="blockbody">
+	  <h1>{{ topic.subject }}</h1>
+    
+	</div>
+	
+	
+  {% for post in topic.posts.all %}
+   
+        <div class = "post-divstyle">
+          <div>
+            <img src="#" alt="{{ post.created_by.username }}" class = "userstyle">
+			
+            <small class ="postcountstyle">Viestejä: {{ post.created_by.posts.count }}</small>
+          </div>
+          <div>
+            <div class="poststyle">
+              <div>
+                <small class ="postcountstyle">{{ post.created_at }}</small>
+				
+              </div>
+            <br />
+			
+			
+            {{ post.message }}
+			<br />
+			{% if post.created_by == user %}
+				
+			
+            <a href="{% url 'edit_post' post.topic.board.pk post.topic.pk post.pk %}" class = "editbutton">Muokkaa</a>
+             
+            {% endif %}
+			<br />
+			
+				</div>
+           
+          </div>
+		 
+        </div>
+		
+  {% endfor %}
+			
+		<div class = "replystyle">
+		 <a href="{% url 'reply_topic' topic.board.pk topic.pk %}" class = "replybutton">Vastaa</a>
+		 
+		</div>
+
+
+
+{% endblock %}

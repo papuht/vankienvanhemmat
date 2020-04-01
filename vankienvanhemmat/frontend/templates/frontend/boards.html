@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks%}
+
+
+{% block content %}
+
+
+  <body>
+  <div class = "post-divstyle">
+  
+
+    <table border="0" class ="tablestyle" >
+      <thead>
+        <tr>
+          <th>Keskustelualueet</th>
+          <th>Viestit    </th>
+          <th>Aiheet    </th>
+          <th>Viimeisin</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for board in boards %}
+          <tr>
+      <td>
+	  <br />
+        <a href="{% url 'board_topics' board.pk %}" class = "linkstyle2">{{ board.name }}</a><br />
+        <small>{{ board.description }}</small>
+		<br />
+		<br />
+      </td>
+	 
+      <td>{{board.get_posts_count}}</td>
+      <td>{{board.topics.count}}</td>
+      <td>
+		{% with post=board.get_last_post %}
+		{% if post %}
+			<small>
+		<a href="{% url 'topic_posts' board.pk post.topic.pk %}" class = "linkstyle2">
+			{{ post.created_by.username }} : {{ post.created_at|date }}
+		</a>
+		</small>
+		{% else %}
+		<small class="text-muted">
+		<em>Ei viestejä</em>
+		</small>
+		{% endif %}
+		{% endwith %}
+	  </td>
+    </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+	</div>
+  </body>
+</html>
+  
+{% endblock %}
+

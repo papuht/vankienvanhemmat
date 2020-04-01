@@ -1,0 +1,258 @@
+.boardstyle {
+	display: block;
+	border-style: solid;
+	border-color: #eee;
+	border-width: 1px;
+	border-radius: 5px;
+	background-color: #eee;
+	box-shadow: 1px 1px;
+	margin:auto;
+	position: relative;
+	width: 50%;
+	font-size: 20px;
+}
+
+.boards  {
+	
+	
+	margin: auto;
+	width: 60%;
+}
+
+th {
+
+	text-align: left;
+	background-color: DarkGreen;
+	color: white;
+	
+
+}
+
+td {
+	text-align: left;
+	background-color: white;
+}	
+
+.tablestyle {
+	
+	border-collapse: collapse;
+	width: 100%;
+	
+	font-size: 25px;
+	background-color: #eee;
+}
+
+.post-boardstyle {
+	margin: auto;
+	width: 60%;
+	border-style: solid; 
+	border-radius: 5px;
+	border-color: DarkGreen;
+	border-width: 2px;
+}
+
+.replyh1style {
+	text-align: center;
+}
+
+
+.reply-headstyle {
+   margin: auto;
+   text-decoration: none;
+   color: black;
+}	
+
+.boardheadstyle {
+	font-size: 25px;
+	background-color: grey;
+	color: #eee;
+	text-align: left;
+
+}
+
+.liststyle {
+	list-style: none;
+	display: inline-block;
+	margin: auto;
+	background-color: DarkGreen;
+	color: white;
+	border-style: solid; 
+	border-radius: 5px;
+	border-color: DarkGreen;
+	border-width: 2px;
+	
+	
+	
+}
+
+
+
+
+.formsubjectstyle {
+	border-radius: 5px;
+	margin:auto;
+	width: 50%;
+	font-size: 20px;
+	
+	
+	
+}
+
+.cancelbuttonstyle {
+	padding:13px 50px;
+	background-color: #eee;
+	color: grey;
+	border-style: solid;
+	border-color: #eee;
+	border-radius: 5px;
+	box-shadow: 1px 1px;
+	font-size: 20px;
+	text-decoration: none;
+	
+}
+
+.cancelbuttonstyle:hover {
+	background-color: grey;
+	color: white;
+}
+
+
+
+.labelstyle {
+	font-size: 25px;
+	
+
+
+}
+
+.buttonstyle {
+	border-radius: 5px;
+	background-color: #eee;
+	padding: 10px;
+
+}
+
+
+
+.userstyle {
+	background-color: DarkGreen;
+	
+	color: #eee;
+	font-size: 25px;
+	
+	display: block;
+	margin:auto;
+	position: relative;
+	
+	
+	
+}
+
+.poststyle {
+	display: block;
+	background-color: white;
+	margin:auto;
+	position: relative;
+	font-size: 25px;
+
+
+}
+
+.postcountstyle {
+	background-color: white;
+	color: grey;
+	font-size: 16px;
+	
+	display: block;
+	margin:auto;
+	position: relative;
+	
+	
+}
+
+.editbutton {
+	text-decoration: none;
+	position: relative;
+	float:right;
+	font-size: 20px;
+	
+	color: DarkGreen;
+	
+}
+
+.linkstyle {
+	text-decoration: none;
+	color: white;
+	font-size: 20px;
+	
+}
+
+.linkstyle2 {
+	text-decoration: none;
+	color: black;
+	font-size: 25px;
+	
+}
+
+
+.linkstyle:hover {
+	color: black;
+	background-color: #eee;
+
+}
+
+.linkstyle2:hover {
+	color: blue;
+	background-color: #eee;
+
+}
+
+.post-divstyle {
+	margin: auto;
+	width: 60%;
+	border-style: solid; 
+	border-radius: 5px;
+	border-color: DarkGreen;
+	border-width: 2px;
+}
+
+
+
+.post-headstyle {
+	margin: auto;
+	width: 60%;
+	
+}
+
+
+.replybutton {
+	text-decoration: none;
+	position:relative;
+	font-size: 20px;
+	border-style: solid; 
+	border-radius: 5px;
+	border-color: DarkGreen;
+	border-width: 3px;
+	background-color: DarkGreen;
+	color: white;
+}
+
+.replystyle {
+	margin: auto;
+	width: 60%;
+	
+}
+
+.replybutton:hover {
+	background-color: #eee;
+	color: black;
+}
+
+.editbutton:hover {
+	background-color: #eee;
+	color: black;
+	
+}
+
+
+

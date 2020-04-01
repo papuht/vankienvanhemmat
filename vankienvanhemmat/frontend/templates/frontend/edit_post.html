@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block title %}Muokkaa viestiä{% endblock %}
+
+{% block header %}
+  <div class = "post-headstyle">
+  <li class="liststyle"><a href="{% url 'board_topics' post.topic.board.pk %}" class = "linkstyle">{{ post.topic.board.name }}</a></li>
+  <li class="liststyle"><a href="{% url 'topic_posts' post.topic.board.pk post.topic.pk %}" class = "linkstyle">{{ post.topic.subject }}</a></li>
+  <h1 class = "replyh1style">Muokkaa viestiä</h1>
+  </div>
+  
+{% endblock %}
+
+{% block content %}
+<div class = "blockbody">
+  <form method="post" novalidate>
+    {% csrf_token %}
+    {% for hidden in form.hidden_fields %}
+	{{ hidden }}
+		{% endfor %}
+
+	{% for field in form.visible_fields %}
+		<div class = "form-div">
+		
+			<label for="{{ field.id_for_label }}">{{ field.label}}</label>
+		{{ field|add_class:"field"}}
+		{% if field.help_text %}
+			<br />
+          <small class="helptext">
+            {{ field.help_text }}
+          </small>
+        {% endif %}
+		{% for error in field.errors %}
+		{{ error }}
+    {% endfor %}
+  </div>
+  <br />
+{% endfor %}
+    <button type="submit" class="inputbtn">Tallenna muutokset</button>
+    <a href="{% url 'topic_posts' post.topic.board.pk post.topic.pk %}" class="cancelbuttonstyle" role="button">Cancel</a>
+  </form>
+  </div>
+  
+  
+  
+  
+{% endblock %}

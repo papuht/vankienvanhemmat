@@ -9,14 +9,19 @@ const Updates = ({updates}) => {
 	const date = formatISO(parsed,{representation: 'date'})
 	
 		 return (
-		
+		<div style = {styles.textstyle}>
+			<ul style = {styles.liststyle}>
 			<li>
-			<p><b>{updates.header}</b></p><br />
-			<p>{date}</p><br />
-			<p><a href ={updates.link}>{updates.link}</a></p><br />
-			<p>{updates.message}</p><br />
+			<p style = {styles.textstyleline}><b>{updates.header}</b></p>
+			<p>Julkaistu {date}</p>
+			<p>Lähde: <a href ={updates.link}>{updates.link}</a></p><br />
+			<p>{updates.message}</p>
 			</li>
-			
+			</ul>
+		</div>
+		
+		
+		
 		
     )
 	
@@ -68,15 +73,15 @@ class App extends Component {
 	const updates = this.state.data 
     return (
 	
-	<div style = {styles.textstyle}>
-	<ul style = {styles.liststyle}>
+	<div>
+	
 	{updates.map(update =>
 		
         <Updates key ={update.id} updates = {update} />
 			
 			
 	)}
-      </ul>
+      
 	  </div>
     )
   }
@@ -87,4 +92,3 @@ class App extends Component {
 export default App
 
 
-ReactDOM.render(<App />, document.getElementById("app"))

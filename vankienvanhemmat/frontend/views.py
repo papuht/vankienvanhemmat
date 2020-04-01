@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from .forms import ApplicationForm
+from django.core.mail import send_mail
 
 # Create your views here.
 
@@ -43,12 +44,29 @@ def get_application(request):
         form = ApplicationForm(request.POST)
         # check whether it's valid:
         if form.is_valid():
-            # process the data in form.cleaned_data as required
-            # ...
-            # redirect to a new URL:
-            return HttpResponseRedirect('frontend/index.html')
+            your_name = form.cleaned_data['your_name']
+            email = form.cleaned_data['email']
+            address = form.cleaned_data['address']
+            phone = form.cleaned_data['phone']
+            username = form.cleaned_data['username']
+            reason = form.cleaned_data['reason']
+			
+            subject = "Jäsenhakemus"
+            message = '''Nimi: {}, 
+                       Sähköpostiosoite: {},
+					   Osoite: {},
+					   Puh. numero: {},
+					   Käyttäjätunnus: {},
+					   Syy liittyä: {}'''.format(your_name, email, address, phone, username, reason)
+			
+            recipients = ['admin@vankienvanhemmat.fi']
+            sender = email
 
-    # if a GET (or any other method) we'll create a blank form
+            send_mail(subject, message, sender, recipients)
+    
+            return HttpResponseRedirect('/')
+
+    
     else:
         form = ApplicationForm()
 
