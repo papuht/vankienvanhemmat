@@ -1,1 +1,8 @@
 .frontend/node_modules
+
+__pycache__/
+*.py[cod]
+.env
+venv/
+
+*.sqlite3
